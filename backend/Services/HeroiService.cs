@@ -13,15 +13,14 @@ namespace backend.Services
             _repository = repository;
         }
 
-        public List<HeroiModel> GetHerois()
-        {
-            return _repository.GetHerois().ToList();
-        }
+        public List<HeroiModel> GetHerois() => _repository.GetHerois().ToList();
 
-        public HeroiModel Add(HeroiModel model)
-        {
-            var returnModel = _repository.Add(model);
-            return returnModel;
-        }
+        public HeroiModel Get(int id) => _repository.Get(id);
+
+        public HeroiModel Add(HeroiModel model) => _repository.Add(model);
+
+        public bool Delete(int id) => _repository.Delete(id);
+
+        public HeroiModel Update(HeroiModel model) => _repository.Update(model);
     }
 }

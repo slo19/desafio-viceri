@@ -22,6 +22,22 @@ namespace backend.Controllers
             return _service.GetHerois();
         }
 
+        [HttpGet]
+        [Route("{id:int}")]
+        public ActionResult<HeroiModel> Get(int id)
+        {
+            try
+            {
+                var model = _service.Get(id);
+                return model == null ? NotFound() : model;
+            }
+            catch (System.Exception)
+            {
+                return BadRequest();
+                throw;
+            }
+        }
+
         [HttpPost]
         public ActionResult<HeroiModel> Create([FromBody] HeroiModel model)
         {
@@ -29,5 +45,17 @@ namespace backend.Controllers
             return returnModel;
         }
 
+        [HttpPut]
+        public ActionResult<HeroiModel> Update([FromBody] HeroiModel model)
+        {
+            return _service.Update(model);
+        }
+
+        [HttpDelete]
+        [Route("{id:int}")]
+        public ActionResult Delete(int id)
+        {
+            return _service.Delete(id) ? Ok() : BadRequest();
+        }
     }
 }

@@ -1,5 +1,6 @@
 using backend.Repositories.Interfaces;
 using backend.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace backend.Repositories
 {
@@ -16,7 +17,7 @@ namespace backend.Repositories
         {
             _context.Herois.Add(model);
             _context.SaveChanges();
-            return _context.Herois.Where(h => h.Nome == model.Nome).First();
+            return model;
         }
 
         public HeroiModel Get(int id)
@@ -49,15 +50,11 @@ namespace backend.Repositories
 
         public HeroiModel Update(HeroiModel model)
         {
-            var obj = _context.Herois.Where(h => h.id == model.id).FirstOrDefault();
-            if (obj != null)
-            {
-                obj = model;
-                _context.SaveChanges();
-                return model;
-            }
-            return null;
-
+            _context.Attach(model);
+            var entry = _context.Entry(model);
+            entry.State = EntityState.Modified;
+            _context.SaveChanges();
+            return model;
         }
 
         public IEnumerable<HeroiModel> GetHerois() => _context.Herois;
