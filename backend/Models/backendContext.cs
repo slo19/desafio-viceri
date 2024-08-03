@@ -11,8 +11,8 @@ namespace backend.Models
         }
 
         public DbSet<HeroiModel> Herois => Set<HeroiModel>();
-        public DbSet<SuperpoderModel> Superpoderes => Set<SuperpoderModel>();
-        public DbSet<HeroiSuperpoderModel> HeroisSuperpoderes => Set<HeroiSuperpoderModel>();
+        //   public DbSet<SuperpoderModel> Superpoderes => Set<SuperpoderModel>();
+        //    public DbSet<HeroiSuperpoderModel> HeroisSuperpoderes => Set<HeroiSuperpoderModel>();
 
     }
 }

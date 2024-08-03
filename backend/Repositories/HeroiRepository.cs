@@ -7,7 +7,7 @@ namespace backend.Repositories
     {
         private readonly backendContext _context;
 
-        public EventoRepository(backendContext ctx)
+        public HeroiRepository(backendContext ctx)
         {
             _context = ctx;
         }
