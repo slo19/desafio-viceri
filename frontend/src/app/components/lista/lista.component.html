@@ -3,6 +3,7 @@
     <li *ngFor="let heroi of herois">
       <span><b>{{heroi.nomeHeroi}}</b></span>
       <span>{{heroi.nome}}</span>
+      <a routerLink="/perfil/{{heroi.id}}">Perfil</a>
     </li>
   </ul>
 </div>

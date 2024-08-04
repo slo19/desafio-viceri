@@ -1,1 +1,11 @@
-<p>perfil works!</p>
+<p>{{heroi.heroi.nome}}</p><br/>
+<p>{{heroi.heroi.nomeHeroi}}</p><br/>
+<ul>
+  <li *ngFor="let s of heroi.superpoderes">
+    <p>{{s.superpoder}}</p><br/>
+    <p>{{s.descricao}}</p>
+  </li>
+  <button type="" (click)="excluir()">Excluir</button>
+
+</ul>
+

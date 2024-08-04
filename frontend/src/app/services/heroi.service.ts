@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Heroi } from '../models/Heroi';
+import { Heroi, HeroiDTO } from '../models/Heroi';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -16,5 +16,16 @@ export class HeroiService {
 
   getAll(): Observable<Heroi[]> {
     return this.http.get<Heroi[]>(this.apiUrl + '/heroi', {'headers': this.headers});
+  }
+
+  get(id: number): Observable<HeroiDTO> {
+    return this.http.get<HeroiDTO>(this.apiUrl + '/heroi/' + id, {'headers': this.headers});
+  }
+  create(body: Heroi): Observable<Heroi> {
+    return this.http.post<Heroi>(this.apiUrl + '/heroi', body)
+  }
+
+  delete(id:number): Observable<any> {
+      return this.http.delete<any>(this.apiUrl + '/heroi/' + id, {'headers': this.headers});
   }
 }

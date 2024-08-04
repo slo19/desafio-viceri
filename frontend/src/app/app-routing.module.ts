@@ -8,7 +8,7 @@ import { CriacaoHeroiComponent } from '../app/components/criacao-heroi/criacao-h
 const routes: Routes = [
   {path: '', component: ListaComponent},
   {path: 'criacao', component: CriacaoHeroiComponent},
-  {path: 'perfil', component: PerfilComponent}
+  {path: 'perfil/:id', component: PerfilComponent}
 ];
 
 @NgModule({

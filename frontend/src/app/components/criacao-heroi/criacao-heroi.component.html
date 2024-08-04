@@ -1,11 +1,22 @@
-<div class="page">
-<div class="card">
-  <h1>Cadastro</h1>
-  <input placeholder="Nome de Herói" type="text">
-  <input placeHolder="Nome" type="text">
-  <input type="date">
-  <input placeHolder="Altura" type="number">
-  <input placeHolder="Peso" type="number">
-  <button type=""> Cadastrar </button>
+<div >
+<div >
+    <h1>Cadastro</h1>
+  <form [formGroup]="form" (ngSubmit)="submitForm()" >
+  <input placeholder="Batman" type="text" formControlName="nomeHeroi" >
+    <input placeHolder="Nome" type="text" formControlName="nome">
+  <input type="date" formControlName="dataNascimento">
+  <input placeHolder="1.80" type="number" formControlName="altura">
+  <input placeHolder="Peso" type="number" formControlName="peso">
+  <button type="submit"> Cadastrar </button>
+  </form>
 </div>
+  <div>
+    <label for="sperpoderes">Pesquisar superpoder:</label>
+    <input type="text" (change)="getSuperpoderes(campoSuperpoder.value)" #campoSuperpoder>
+   <ul>
+    <li *ngFor="let s of superpoderes">
+      <p>{{s.superpoder}}</p><br/>
+    </li>
+   </ul>
+  </div>
 </div>
