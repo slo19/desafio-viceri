@@ -20,6 +20,16 @@ builder.Services.AddScoped<IHeroiService, HeroiService>();
 builder.Services.AddScoped<IHeroiRepository, HeroiRepository>();
 builder.Services.AddDbContext<backendContext>(opts => opts.UseInMemoryDatabase("test"));
 
+builder.Services.AddCors(opts =>
+{
+    opts.AddPolicy("SpecificOrigins",
+            builder =>
+            {
+                builder.AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .WithMethods("GET", "POST", "DELETE", "PUT", "OPTIONS");
+            });
+});
 
 var app = builder.Build();
 
@@ -34,12 +44,10 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+app.UseCors("SpecificOrigins");
+
 app.UseHttpsRedirection();
 
 app.MapControllers();
 app.Run();
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}

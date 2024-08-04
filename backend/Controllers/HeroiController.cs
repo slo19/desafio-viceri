@@ -6,7 +6,7 @@ using backend.Services.Interfaces;
 namespace backend.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class HeroiController : Controller
     {
         private IHeroiService _service;
