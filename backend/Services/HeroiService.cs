@@ -15,6 +15,8 @@ namespace backend.Services
 
         public List<HeroiModel> GetHerois() => _repository.GetHerois().ToList();
 
+        public HeroiModel GetByNomeHeroi(string nomeHeroi) => _repository.GetByNomeHeroi(nomeHeroi);
+
         public HeroiModel Get(int id) => _repository.Get(id);
 
         public HeroiModel Add(HeroiModel model) => _repository.Add(model);

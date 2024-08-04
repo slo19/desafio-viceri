@@ -25,6 +25,10 @@ namespace backend.Repositories
             return _context.Superpoderes.Where(h => h.Superpoder.Contains(token) || h.Descricao.Contains(token)).ToList();
         }
 
+        public List<SuperpoderModel> GetByIds(List<int> ids)
+        {
+            return _context.Superpoderes.Where(h => ids.Contains(h.id.Value)).ToList();
+        }
     }
 }
 

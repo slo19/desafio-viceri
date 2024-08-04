@@ -15,6 +15,8 @@ namespace backend.Services
 
         public List<SuperpoderModel> Get(string token) => _repository.Get(token);
 
+        public List<SuperpoderModel> GetByIds(List<int> ids) => _repository.GetByIds(ids);
+
         public SuperpoderModel Add(SuperpoderModel model) => _repository.Add(model);
 
     }

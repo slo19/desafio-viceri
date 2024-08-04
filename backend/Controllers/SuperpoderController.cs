@@ -6,7 +6,7 @@ using backend.Services.Interfaces;
 namespace backend.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class SuperpoderController : Controller
     {
         private ISuperpoderService _service;

@@ -16,6 +16,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<ISuperpoderService, SuperpoderService>();
 builder.Services.AddScoped<ISuperpoderRepository, SuperpoderRepository>();
+builder.Services.AddScoped<IHeroiSuperpoderService, HeroiSuperpoderService>();
+builder.Services.AddScoped<IHeroiSuperpoderRepository, HeroiSuperpoderRepository>();
 builder.Services.AddScoped<IHeroiService, HeroiService>();
 builder.Services.AddScoped<IHeroiRepository, HeroiRepository>();
 builder.Services.AddDbContext<backendContext>(opts => opts.UseInMemoryDatabase("test"));
